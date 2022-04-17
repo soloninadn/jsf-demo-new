@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-employees-table
+      author: Valid Akhundov
+      changes:
+        - createTable:
+            tableName: employees
+            remarks: Table to store employees' details
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(25)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: email
+                  type: varchar(16)
+                  constraints:
+                    nullable: false
+                  remarks: email employee
+              - column:
+                  name: department
+                  type: varchar(16)
+                  constraints:
+                    nullable: false
