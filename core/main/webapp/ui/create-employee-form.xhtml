@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <title>JSF Demo Project</title>
+    <link href="${facesContext.externalContext.requestContextPath}/ui/css/style.css" rel="stylesheet" type="text/css"/>
+</h:head>
+
+<h:body>
+    <h3>Add Employee</h3>
+    <hr/>
+    <div>
+        <h:form>
+            <h:outputLabel>Employee Name</h:outputLabel>
+            <h:inputText value="#{employeeBean.name}" id="name"/>
+            <br/>
+            <h:outputLabel>Department</h:outputLabel>
+            <h:inputText value="#{employeeBean.department}" id="department"/>
+            <br/>
+            <h:outputLabel>Email</h:outputLabel>
+            <h:inputText value="#{employeeBean.email}" id="email" required="true"
+                         requiredMessage="Email is mandatory"/>
+            <h:message for="email"/>
+            <br/>
+            <h:commandButton value="Save" action="#{employeeController.saveEmployee(employeeBean)}"/>
+        </h:form>
+    </div>
+
+    <p><h:outputLink value="index.xhtml">Back to List</h:outputLink></p>
+</h:body>
+
+</html>

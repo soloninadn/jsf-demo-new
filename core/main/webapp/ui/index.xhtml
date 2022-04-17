@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <title>JSF Demo Project</title>
+    <link href="${facesContext.externalContext.requestContextPath}/ui/css/style.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="${facesContext.externalContext.requestContextPath}/ui/js/script.js"></script>
+
+</h:head>
+
+<h:body>
+    <h2>Employees List</h2>
+    <hr/>
+    <br/>
+    <h:dataTable value="#{employeeController.employees}" var="employee" border="1" id="table-employees">
+
+        <h:column>
+            <f:facet name="header">Name</f:facet>
+            #{employee.name}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Department</f:facet>
+            #{employee.department}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Email</f:facet>
+            #{employee.email}
+        </h:column>
+
+    </h:dataTable>
+    <h:button styleClass="button" value="Add Employee" outcome="create-employee-form"/>
+</h:body>
+
+</html>
